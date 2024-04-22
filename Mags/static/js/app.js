@@ -48,7 +48,8 @@ function createChart(sampleID, data) {
     let plotData = [trace];
 
     let layout = {
-        title: "Top 10 OTUs",
+        title: "Top 10 Bacteria Cultures Found",
+        xaxis : { title: 'Number of Bacteria'},
         yaxis: {
             tickmode: "linear"
         }
@@ -56,7 +57,6 @@ function createChart(sampleID, data) {
 
     Plotly.newPlot("bar", plotData, layout);
 
-    // Create trace for the bubble chart
     let sample = data.samples.find(sample => sample.id === sampleID);
     let bubbleTrace = {
         x: sample.otu_ids,
@@ -74,6 +74,7 @@ function createChart(sampleID, data) {
     let bubbleLayout = {
         title: 'Bacteria Cultures Per Sample',
         xaxis: { title: 'OTU ID' },
+        yaxis: { title: 'Number of Bacteria' },
         hovermode: 'closest',
         showlegend: false
     };
